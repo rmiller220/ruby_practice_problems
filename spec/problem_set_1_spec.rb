@@ -28,4 +28,15 @@ RSpec.describe 'Problem Set 1' do
       expect(two_sum([3, 3], 6)).to eq([0, 1])
     end
   end
+
+  describe 'Roman to Integer' do
+    it 'returns the integer value of the roman numeral' do
+      expect(roman_to_int('III')).to eq(3)
+      expect(roman_to_int('IV')).to eq(4)
+      expect(roman_to_int('IX')).to eq(9)
+      expect(roman_to_int('LVIII')).to eq(58)
+      expect(roman_to_int('MCMXCIV')).to eq(1994)
+      expect(roman_to_int('MMXXI')).to eq(2021)
+    end
+  end
 end
