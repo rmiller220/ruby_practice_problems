@@ -29,6 +29,13 @@ RSpec.describe 'Problem Set 1' do
     end
   end
 
+  describe 'Contains Duplicate' do
+    it 'returns true if any value appears at least twice in the array' do
+      expect(contains_duplicate([1, 2, 3, 1])).to eq(true)
+      expect(contains_duplicate([1, 2, 3, 4])).to eq(false)
+    end
+  end
+
   describe 'Roman to Integer' do
     it 'returns the integer value of the roman numeral' do
       expect(roman_to_int('III')).to eq(3)
