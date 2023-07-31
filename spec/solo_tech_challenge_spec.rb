@@ -18,4 +18,13 @@ RSpec.describe 'Solo Tech Challenge' do
       expect(robot('GRGRGRGL')).to eq(false)
     end
   end
+
+  describe 'Next Palindrome' do
+    it 'returns the next number that is a palindrome' do
+      expect(find_next_palindrome(101)).to eq(111)
+      expect(find_next_palindrome(111)).to eq(121)
+      expect(find_next_palindrome(191)).to eq(202)
+      expect(find_next_palindrome(909)).to eq(919)
+    end
+  end
 end
