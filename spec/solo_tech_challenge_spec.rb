@@ -27,4 +27,12 @@ RSpec.describe 'Solo Tech Challenge' do
       expect(find_next_palindrome(909)).to eq(919)
     end
   end
+
+  describe 'Merge Sorted Array' do
+    it 'returns a merged array with the length based on input values of n and m' do
+      expect(merge_sorted_array([1,2,3,0,0,0], 3, [2,5,6], 3)).to eq([1,2,2,3,5,6])
+      expect(merge_sorted_array([1], 1, [], 0)).to eq([1])
+      expect(merge_sorted_array([0], 0, [1], 1)).to eq([1])
+    end
+  end
 end
