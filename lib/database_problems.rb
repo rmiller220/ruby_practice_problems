@@ -1,3 +1,4 @@
+# Problem 1: Combine Two Tables
 # Table: Person
 
 # +-------------+---------+
@@ -61,8 +62,12 @@
 # There is no address in the address table for the personId = 1 so we return null in their city and state.
 # addressId = 1 contains information about the address of personId = 2.
 
-SELECT Person.firstName, Person.lastName, Address.city, Address.state FROM Person LEFT JOIN Address ON Person.personID=Address.personID;
+SELECT Person.firstName, Person.lastName, Address.city, Address.state 
+FROM Person 
+LEFT JOIN Address ON Person.personID=Address.personID;
 
+
+# Problem 2: Employees Earning More Than Their Managers
 # Table: Employee
 
 # +-------------+---------+
@@ -110,6 +115,51 @@ FROM employee e1
 INNER JOIN employee e2 ON e1.id = e2.managerID
 WHERE
 e1.salary < e2.salary
+
+# Problem 3: Duplicate Emails
+# Table: Person
+
+# +-------------+---------+
+# | Column Name | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | email       | varchar |
+# +-------------+---------+
+# id is the primary key (column with unique values) for this table.
+# Each row of this table contains an email. The emails will not contain uppercase letters.
+ 
+
+# Write a solution to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL.
+
+# Return the result table in any order.
+
+# The result format is in the following example.
+
+ 
+
+# Example 1:
+
+# Input: 
+# Person table:
+# +----+---------+
+# | id | email   |
+# +----+---------+
+# | 1  | a@b.com |
+# | 2  | c@d.com |
+# | 3  | a@b.com |
+# +----+---------+
+# Output: 
+# +---------+
+# | Email   |
+# +---------+
+# | a@b.com |
+# +---------+
+# Explanation: a@b.com is repeated two times.
+
+SELECT email FROM Person 
+GROUP BY email
+HAVING COUNT(email) > 1
+
 
 
 
