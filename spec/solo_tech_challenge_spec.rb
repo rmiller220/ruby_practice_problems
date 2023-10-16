@@ -35,4 +35,12 @@ RSpec.describe 'Solo Tech Challenge' do
       expect(merge_sorted_array([0], 0, [1], 1)).to eq([1])
     end
   end
+
+  describe "Pascal's Triangle" do
+    it 'returns the row of the triangle based on the input value of row_index' do
+      expect(pascals_triangle(3)).to eq([1,3,3,1])
+      expect(pascals_triangle(0)).to eq([1])
+      expect(pascals_triangle(1)).to eq([1,1])
+    end
+  end
 end
