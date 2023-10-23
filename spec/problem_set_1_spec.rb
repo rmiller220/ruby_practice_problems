@@ -46,5 +46,13 @@ RSpec.describe 'Problem Set 1' do
       expect(roman_to_int('MMXXI')).to eq(2021)
     end
   end
+
+  describe "summary_ranges" do
+    it "returns an array of strings representing the consecutive ranges" do
+      expect(summary_ranges([0,1,2,4,5,7])).to eq(["0->2","4->5","7"])
+      expect(summary_ranges([0,2,3,4,6,8,9])).to eq(["0","2->4","6","8->9"])
+      
+    end
+  end
 end
 
