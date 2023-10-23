@@ -39,9 +39,42 @@ end
 # C can be placed before D (500) and M (1000) to make 400 and 900.
 # Given a roman numeral, convert it to an integer.
 
-def roman_to_int(s)
+def roman_to_int(numerals)
+  roman_hash = {
+      "I" => 1,
+      "V" => 5,
+      "X" => 10,
+      "L" => 50,
+      "C" => 100,
+      "D" => 500,
+      "M" => 1000
+  }
 
+  total = 0
+  prev_value = 0
+
+  numerals.reverse.each_char do |char|
+    value = roman_hash[char]
+    if value < prev_value
+      total -= value
+    else
+      total += value
+    end
+    prev_value = value
+  end
+
+  total
 end
+  # result = 0
+  # numerals.chars.each_with_index do |char, index|
+  #     if roman_hash[char] < roman_hash[numerals[index + 1]]
+  #         result -= roman_hash[char]
+  #     else
+  #         result += roman_hash[char]
+  #     end
+  # end
+  # result
+
 
 # Given an integer rowIndex, return the rowIndexth (0-indexed) 
 # row of the Pascal's triangle.
@@ -76,4 +109,51 @@ def get_row(row_index)
       result = (result + [0]).zip([0] + result).map(&:sum)
   end
   result
+end
+
+# You are given a sorted unique integer array nums.
+
+# A range [a,b] is the set of all integers from a to b (inclusive).
+
+# Return the smallest sorted list of ranges that cover all the numbers in the array exactly. That is, each element of nums is covered by exactly one of the ranges, and there is no integer x such that x is in one of the ranges but not in nums.
+
+# Each range [a,b] in the list should be output as:
+
+# "a->b" if a != b
+# "a" if a == b
+ 
+
+# Example 1:
+
+# Input: nums = [0,1,2,4,5,7]
+# Output: ["0->2","4->5","7"]
+# Explanation: The ranges are:
+# [0,2] --> "0->2"
+# [4,5] --> "4->5"
+# [7,7] --> "7"
+# Example 2:
+
+# Input: nums = [0,2,3,4,6,8,9]
+# Output: ["0","2->4","6","8->9"]
+# Explanation: The ranges are:
+# [0,0] --> "0"
+# [2,4] --> "2->4"
+# [6,6] --> "6"
+# [8,9] --> "8->9"
+
+def summary_ranges(nums)
+  return [] if nums.empty?
+  ranges = []
+  start = nums[0]
+  nums.each_with_index do |num, index|
+      if num + 1 != nums[index + 1]
+          if num == start
+              ranges << "#{start}"
+          else
+              ranges << "#{start}->#{num}"
+          end
+          start = nums[index + 1]
+      end
+  end
+  ranges
 end
