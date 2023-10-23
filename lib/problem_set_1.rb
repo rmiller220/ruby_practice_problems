@@ -65,15 +65,6 @@ def roman_to_int(numerals)
 
   total
 end
-  # result = 0
-  # numerals.chars.each_with_index do |char, index|
-  #     if roman_hash[char] < roman_hash[numerals[index + 1]]
-  #         result -= roman_hash[char]
-  #     else
-  #         result += roman_hash[char]
-  #     end
-  # end
-  # result
 
 
 # Given an integer rowIndex, return the rowIndexth (0-indexed) 
